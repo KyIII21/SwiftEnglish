@@ -33,27 +33,38 @@ class UserLoginManager: ObservableObject {
     }
 }
 
-struct LoginView: View {
+struct SignInView: View {
+    @ObservedObject var network: NetworkManager
     @Environment(\.presentationMode) var presentationMode
-    @State private var email = ""
-    @State private var password = ""
-    @State private var againPassword = ""
+    @State private var user = UserForLogin()
+    @State private var showingError = false
     
     @ObservedObject var fbmanager = UserLoginManager()
 
-   
-    func signUpButton(){
-       presentationMode.wrappedValue.dismiss()
+        
+    func signInButton(){
+        network.signUpOrIn(userInfo: user, apiUrl: .signIn) { userResponce in
+            if userResponce != nil {
+                //if user signIn
+                DispatchQueue.main.async {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+                
+            }else{
+                self.showingError.toggle()
+            }
+        }
+        
     }
    
     var body: some View {
         NavigationView{
             VStack{
-                TextField("email", text: $email)
+                TextField("email", text: $user.email)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("password", text: $password)
+                TextField("password", text: $user.password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                Button(action: {}){
+                Button(action: {self.signInButton()}){
                     Text("SIGN IN")
                         .padding(10)
                         .foregroundColor(.black)
@@ -77,12 +88,15 @@ struct LoginView: View {
                 Text("Close")
                     .foregroundColor(.red)
                 })
+            .alert(isPresented: $showingError){
+                Alert(title: Text("Error SignIn"), message: Text("\(network.textError)"), dismissButton: .default(Text("Ok")))
+            }
         }
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        SignInView(network: NetworkManager())
     }
 }

@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4E2C7DEF24D6EF1600853ABE /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C7DEE24D6EF1600853ABE /* AuthView.swift */; };
-		4E2C7DF124D6F26D00853ABE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C7DF024D6F26D00853ABE /* LoginView.swift */; };
+		4E2C7DF124D6F26D00853ABE /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C7DF024D6F26D00853ABE /* SignInView.swift */; };
 		4E2C7DF324D6F27B00853ABE /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C7DF224D6F27B00853ABE /* SignUpView.swift */; };
-		4E2C7DF924D721F000853ABE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2C7DF824D721F000853ABE /* SwiftPackageProductDependency */; };
-		4E2C7DFB24D721F000853ABE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2C7DFA24D721F000853ABE /* SwiftPackageProductDependency */; };
-		4E2C7DFD24D721F000853ABE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2C7DFC24D721F000853ABE /* SwiftPackageProductDependency */; };
+		4E2C7DF924D721F000853ABE /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2C7DF824D721F000853ABE /* FacebookCore */; };
+		4E2C7DFB24D721F000853ABE /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2C7DFA24D721F000853ABE /* FacebookLogin */; };
+		4E2C7DFD24D721F000853ABE /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2C7DFC24D721F000853ABE /* FacebookShare */; };
+		4E2C7DFF24D74F1200853ABE /* NetworkWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C7DFE24D74F1200853ABE /* NetworkWork.swift */; };
+		4E2C7E0124D7541E00853ABE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C7E0024D7541E00853ABE /* User.swift */; };
+		4E590AB724D9CD6800581FB8 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E590AB624D9CD6800581FB8 /* MainScreenView.swift */; };
 		4EEEA3CC24D6E53F008A166B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEEA3CB24D6E53F008A166B /* AppDelegate.swift */; };
 		4EEEA3CE24D6E53F008A166B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEEA3CD24D6E53F008A166B /* SceneDelegate.swift */; };
 		4EEEA3D124D6E53F008A166B /* SwiftEnglish.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EEEA3CF24D6E53F008A166B /* SwiftEnglish.xcdatamodeld */; };
@@ -24,8 +27,11 @@
 
 /* Begin PBXFileReference section */
 		4E2C7DEE24D6EF1600853ABE /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
-		4E2C7DF024D6F26D00853ABE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		4E2C7DF024D6F26D00853ABE /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		4E2C7DF224D6F27B00853ABE /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		4E2C7DFE24D74F1200853ABE /* NetworkWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWork.swift; sourceTree = "<group>"; };
+		4E2C7E0024D7541E00853ABE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4E590AB624D9CD6800581FB8 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		4EEEA3C824D6E53F008A166B /* SwiftEnglish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftEnglish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEEA3CB24D6E53F008A166B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EEEA3CD24D6E53F008A166B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,9 +48,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E2C7DF924D721F000853ABE /* BuildFile in Frameworks */,
-				4E2C7DFD24D721F000853ABE /* BuildFile in Frameworks */,
-				4E2C7DFB24D721F000853ABE /* BuildFile in Frameworks */,
+				4E2C7DF924D721F000853ABE /* FacebookCore in Frameworks */,
+				4E2C7DFD24D721F000853ABE /* FacebookShare in Frameworks */,
+				4E2C7DFB24D721F000853ABE /* FacebookLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,8 +80,11 @@
 				4EEEA3CD24D6E53F008A166B /* SceneDelegate.swift */,
 				4EEEA3D224D6E53F008A166B /* ContentView.swift */,
 				4E2C7DEE24D6EF1600853ABE /* AuthView.swift */,
-				4E2C7DF024D6F26D00853ABE /* LoginView.swift */,
+				4E2C7DF024D6F26D00853ABE /* SignInView.swift */,
 				4E2C7DF224D6F27B00853ABE /* SignUpView.swift */,
+				4E2C7DFE24D74F1200853ABE /* NetworkWork.swift */,
+				4E590AB624D9CD6800581FB8 /* MainScreenView.swift */,
+				4E2C7E0024D7541E00853ABE /* User.swift */,
 				4EEEA3D424D6E54A008A166B /* Assets.xcassets */,
 				4EEEA3D924D6E54A008A166B /* LaunchScreen.storyboard */,
 				4EEEA3DC24D6E54A008A166B /* Info.plist */,
@@ -110,9 +119,9 @@
 			);
 			name = SwiftEnglish;
 			packageProductDependencies = (
-				4E2C7DF824D721F000853ABE /* SwiftPackageProductDependency */,
-				4E2C7DFA24D721F000853ABE /* SwiftPackageProductDependency */,
-				4E2C7DFC24D721F000853ABE /* SwiftPackageProductDependency */,
+				4E2C7DF824D721F000853ABE /* FacebookCore */,
+				4E2C7DFA24D721F000853ABE /* FacebookLogin */,
+				4E2C7DFC24D721F000853ABE /* FacebookShare */,
 			);
 			productName = SwiftEnglish;
 			productReference = 4EEEA3C824D6E53F008A166B /* SwiftEnglish.app */;
@@ -143,7 +152,7 @@
 			);
 			mainGroup = 4EEEA3BF24D6E53F008A166B;
 			packageReferences = (
-				4E2C7DF724D721F000853ABE /* RemoteSwiftPackageReference */,
+				4E2C7DF724D721F000853ABE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 4EEEA3C924D6E53F008A166B /* Products */;
 			projectDirPath = "";
@@ -172,11 +181,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E2C7DF124D6F26D00853ABE /* LoginView.swift in Sources */,
+				4E2C7DF124D6F26D00853ABE /* SignInView.swift in Sources */,
+				4E590AB724D9CD6800581FB8 /* MainScreenView.swift in Sources */,
 				4EEEA3CC24D6E53F008A166B /* AppDelegate.swift in Sources */,
 				4E2C7DEF24D6EF1600853ABE /* AuthView.swift in Sources */,
 				4E2C7DF324D6F27B00853ABE /* SignUpView.swift in Sources */,
 				4EEEA3CE24D6E53F008A166B /* SceneDelegate.swift in Sources */,
+				4E2C7E0124D7541E00853ABE /* User.swift in Sources */,
+				4E2C7DFF24D74F1200853ABE /* NetworkWork.swift in Sources */,
 				4EEEA3D324D6E53F008A166B /* ContentView.swift in Sources */,
 				4EEEA3D124D6E53F008A166B /* SwiftEnglish.xcdatamodeld in Sources */,
 			);
@@ -374,7 +386,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4E2C7DF724D721F000853ABE /* RemoteSwiftPackageReference */ = {
+		4E2C7DF724D721F000853ABE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/facebook/facebook-ios-sdk.git";
 			requirement = {
@@ -385,19 +397,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4E2C7DF824D721F000853ABE /* SwiftPackageProductDependency */ = {
+		4E2C7DF824D721F000853ABE /* FacebookCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4E2C7DF724D721F000853ABE /* RemoteSwiftPackageReference */;
+			package = 4E2C7DF724D721F000853ABE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookCore;
 		};
-		4E2C7DFA24D721F000853ABE /* SwiftPackageProductDependency */ = {
+		4E2C7DFA24D721F000853ABE /* FacebookLogin */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4E2C7DF724D721F000853ABE /* RemoteSwiftPackageReference */;
+			package = 4E2C7DF724D721F000853ABE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookLogin;
 		};
-		4E2C7DFC24D721F000853ABE /* SwiftPackageProductDependency */ = {
+		4E2C7DFC24D721F000853ABE /* FacebookShare */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4E2C7DF724D721F000853ABE /* RemoteSwiftPackageReference */;
+			package = 4E2C7DF724D721F000853ABE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookShare;
 		};
 /* End XCSwiftPackageProductDependency section */

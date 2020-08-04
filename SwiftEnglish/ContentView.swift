@@ -9,8 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var network = NetworkManager()
     var body: some View {
-        AuthView()
+        ZStack{
+            if network.userIsNotLogin(){
+                AuthView(network: network)
+            }else{
+                MainScreenView(network: network)
+            }
+        }
+        
         
     }
 }

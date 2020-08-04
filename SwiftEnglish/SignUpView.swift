@@ -9,29 +9,43 @@
 import SwiftUI
 
 struct SignUpView: View {
+    @ObservedObject var network: NetworkManager
     @Environment(\.presentationMode) var presentationMode
     @State private var learnLang = 0
     @State private var knowLang = 1
     private let langs = ["EN", "RU", "ES"]
-    @State private var email = ""
-    @State private var password = ""
     @State private var againPassword = ""
+    @State private var user = UserForSignUp()
+    @State var showingError = false
  
     func checkDisableSignUpButton() -> Bool{
-        if email.count < 6 || password.count < 7{
+        if user.email.count < 6 || user.password.count < 7{
             return true
         }
-        if !email.contains("@") || !email.contains("."){
+        if !user.email.contains("@") || !user.email.contains("."){
             return true
         }
-        if password != againPassword{
+        if user.password != againPassword{
             return true
         }
         return false
     }
     
     func signUpButton(){
-        presentationMode.wrappedValue.dismiss()
+        user.lang.know = langs[knowLang].lowercased()
+        user.lang.learn = langs[learnLang].lowercased()
+        
+        network.signUpOrIn(userInfo: user, apiUrl: .signUp) { userResponce in
+            if userResponce != nil {
+                //if user signUp
+                DispatchQueue.main.async {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+            }else{
+                self.showingError.toggle()
+            }
+        }
+        
     }
     
     var body: some View {
@@ -58,9 +72,9 @@ struct SignUpView: View {
                         .pickerStyle(SegmentedPickerStyle())
                     }
                 }
-                TextField("email", text: $email)
+                TextField("email", text: $user.email)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("password", text: $password)
+                TextField("password", text: $user.password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 TextField("again password", text: $againPassword)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -76,18 +90,21 @@ struct SignUpView: View {
                 
                 Spacer()
             }
-        .padding()
-        .navigationBarTitle("Sign Up")
-        .navigationBarItems(trailing: Button(action: {self.presentationMode.wrappedValue.dismiss()}){
-            Text("Close")
-                .foregroundColor(.red)
-            })
+            .padding()
+            .navigationBarTitle("Sign Up")
+            .navigationBarItems(trailing: Button(action: {self.presentationMode.wrappedValue.dismiss()}){
+                Text("Close")
+                    .foregroundColor(.red)
+                })
+            .alert(isPresented: $showingError){
+                Alert(title: Text("Error SignUp"), message: Text("\(network.textError)"), dismissButton: .default(Text("Ok")))
+            }
         }
     }
 }
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView()
+        SignUpView(network: NetworkManager())
     }
 }

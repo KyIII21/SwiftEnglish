@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct AuthView: View {
+    @ObservedObject var network: NetworkManager
     private let backgroundColor = Color(red: 0.07, green: 0.07, blue: 0.07)
     private let mainColor = Color(red: 0.38, green: 0.85, blue: 0.98)
     @State private var showingLoginSheet = false
@@ -36,7 +37,7 @@ struct AuthView: View {
                         .foregroundColor(self.mainColor)
                         .sheet(isPresented: self.$showingLoginSheet){
                             //AddBookView().environment(\.managedObjectContext, self.moc)
-                            LoginView()
+                            SignInView(network: self.network)
                         }
                         Button(action: {self.showingSignUpSheet.toggle()}){
                             Text("SIGN UP")
@@ -48,7 +49,7 @@ struct AuthView: View {
                         .padding(.leading)
                         .sheet(isPresented: self.$showingSignUpSheet){
                             //AddBookView().environment(\.managedObjectContext, self.moc)
-                            SignUpView()
+                            SignUpView(network: self.network)
                         }
                     }
                     .padding()
@@ -61,6 +62,6 @@ struct AuthView: View {
 
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView()
+        AuthView(network: NetworkManager())
     }
 }
